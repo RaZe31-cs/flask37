@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+
+{% block content %}
+    <form>
+    {% for job in jobs %}
+        <h2>Action # {{loop.index}}</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Title of activity</th>
+                <th scope="col">Team leader</th>
+                <th scope="col">Duration</th>
+                <th scope="col">List of collaborators</th>
+                <th scope="col">is finished</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{job.job}}</td>
+                <td>{{job.team_leader}}</td>
+                <td>{{job.work_size}}</td>
+                <td>{{job.collaborators}}</td>
+                {% if job.is_finished==1 %}
+                    <td>is finished</td>
+                {% else %}
+                    <td>Is not finished</td>
+                {% endif %}
+            </tr>
+            </tbody>
+        </table>
+    {% endfor %}
+    </form>
+{% endblock %}
